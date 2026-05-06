@@ -37,7 +37,7 @@
       }
     }
   },
-  "remoteUser": "node",
+  "remoteUser": "root",
   "mounts": [
     "source=claude-code-bashhistory-${devcontainerId},target=/commandhistory,type=volume",
     "source=/home/kazuaki/.claude,target=/home/node/.claude,type=bind"
