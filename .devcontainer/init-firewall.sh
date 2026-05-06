@@ -68,7 +68,6 @@ for domain in \
     "registry.npmjs.org" \
     "api.anthropic.com" \
     "sentry.io" \
-    "statsig.anthropic.com" \
     "statsig.com" \
     "marketplace.visualstudio.com" \
     "vscode.blob.core.windows.net" \
@@ -76,8 +75,8 @@ for domain in \
     echo "Resolving $domain..."
     ips=$(dig +noall +answer A "$domain" | awk '$4 == "A" {print $5}')
     if [ -z "$ips" ]; then
-        echo "ERROR: Failed to resolve $domain"
-        exit 1
+       echo "WARNING: Failed to resolve $domain - skipped"
+       continue
     fi
     
     while read -r ip; do
