@@ -28,6 +28,21 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   postgresql-client \
   && apt-get clean && rm -rf /var/lib/apt/lists/*
 
+# Install Apache2 and PHP (mod_php)
+RUN apt-get update && apt-get install -y --no-install-recommends \
+  apache2 \
+  php \
+  libapache2-mod-php \
+  php-cli \
+  php-pgsql \
+  php-mysql \
+  php-curl \
+  php-mbstring \
+  php-xml \
+  php-zip \
+  && apt-get clean && rm -rf /var/lib/apt/lists/* \
+  && echo "ServerName localhost" >> /etc/apache2/apache2.conf
+
 # Ensure default node user has access to /usr/local/share
 RUN mkdir -p /usr/local/share/npm-global && \
   chown -R node:node /usr/local/share

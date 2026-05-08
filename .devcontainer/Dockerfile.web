@@ -1,0 +1,22 @@
+FROM debian:bookworm-slim
+
+ARG TZ=Asia/Tokyo
+ENV TZ="$TZ"
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+  apache2 \
+  php \
+  libapache2-mod-php \
+  php-cli \
+  php-pgsql \
+  php-mysql \
+  php-curl \
+  php-mbstring \
+  php-xml \
+  php-zip \
+  && apt-get clean && rm -rf /var/lib/apt/lists/* \
+  && echo "ServerName localhost" >> /etc/apache2/apache2.conf
+
+EXPOSE 80
+
+CMD ["apachectl", "-D", "FOREGROUND"]
