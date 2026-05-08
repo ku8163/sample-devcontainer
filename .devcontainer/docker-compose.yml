@@ -11,6 +11,9 @@ services:
         GIT_DELTA_VERSION: 0.18.2
         ZSH_IN_DOCKER_VERSION: 1.2.0
     command: sleep infinity
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
     volumes:
       - ..:/workspace:cached
     cap_add:

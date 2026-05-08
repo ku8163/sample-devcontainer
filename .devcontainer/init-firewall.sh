@@ -68,6 +68,9 @@ for domain in \
     "deb.debian.org" \
     "registry.npmjs.org" \
     "api.anthropic.com" \
+    "claude.ai" \
+    "platform.claude.com" \
+    "downloads.claude.ai" \
     "sentry.io" \
     "statsig.com" \
     "marketplace.visualstudio.com" \
